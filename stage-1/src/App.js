@@ -25,7 +25,7 @@ class App extends Component {
         });
       });
   }
-  addToCart(item) {
+  addToCart = (item) => {
     this.setState({
       cart: [...this.state.cart, item]
     });
@@ -55,9 +55,9 @@ class App extends Component {
         <NavBar navigate={this.navigate} />
         <div className="main-container">
           {showCart ? (
-            <ShoppingCart cart={this.state.cart} />
+            <ShoppingCart cart={this.state.cart} removeFromCart={this.removeFromCart} />
           ) : (
-            <StoreFront products={products} />
+            <StoreFront products={products} addToCart={this.addToCart} />
           )}
         </div>
       </div>
