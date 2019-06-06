@@ -25,7 +25,7 @@ class App extends Component {
         });
       });
   }
-  addToCart = (item) => {
+  addToCart(item) {
     this.setState({
       cart: [...this.state.cart, item]
     });
@@ -49,13 +49,13 @@ class App extends Component {
     }
   }
   render() {
-    const { products, showCart } = this.state;
+    const { products, showCart, cart } = this.state;
     return (
       <div className="App">
         <NavBar navigate={this.navigate} />
         <div className="main-container">
           {showCart ? (
-            <ShoppingCart cart={this.state.cart} removeFromCart={this.removeFromCart} />
+            <ShoppingCart cart={cart} removeFromCart={this.removeFromCart} />
           ) : (
             <StoreFront products={products} addToCart={this.addToCart} />
           )}
